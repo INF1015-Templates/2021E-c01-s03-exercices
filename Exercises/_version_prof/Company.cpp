@@ -31,6 +31,15 @@ Company::Company(const string& name, const string& presidentName, double preside
 	cout << "Company(const string&, const string&, double)" << "\n";
 }
 
+Company::Company(const string& name, const string& presidentName, double presidentSalary, span<Employee*> employees)
+: Company(name, presidentName, presidentSalary) {
+	for (int i : range(employees.size())) {
+		employees_[i] = employees[i];
+	}
+	numEmployees_ = employees.size();
+	cout << "Company(const string&, const string&, double, span<Employee*>)" << "\n";
+}
+
 Company::~Company() {
 	for (int i : range(numEmployees_)) {
 		delete employees_[i];
@@ -56,6 +65,9 @@ int Company::getNumEmployees() const {
 }
 
 void Company::addEmployee(const string& name, double salary) {
+	// numEmployees_ = 3;
+	// [E, E, E, 0, 0, 0, ...]
+	//  0  1  2  3  4  5
 	employees_[numEmployees_] = new Employee(name, salary);
 	numEmployees_++;
 }
