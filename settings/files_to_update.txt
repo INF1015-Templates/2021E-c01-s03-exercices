@@ -5,5 +5,6 @@ README.md
 
 Exercises/_version_prof/main.cpp
 Exercises/_version_prof/Company.cpp
+Exercises/_version_prof/Company.hpp
 Exercises/_version_prof/Employee.cpp
 Exercises/_version_prof/tuples.cpp
